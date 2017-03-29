@@ -1,3 +1,5 @@
-<footer>
-    <p>Created by George Higbie - {{getCurentYear}}</p>
-</footer>
+const express = require("express"),
+      hbs     = require("hbs"),
+      fs      = require("fs");
+
+var app = express();
