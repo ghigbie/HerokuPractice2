@@ -19,13 +19,13 @@ app.set("view engine", "hbs");
 //     next();
 // });
 
-app.use((req, res) => {
-    res.render("maintenance.hbs", {
-        pageTitle: "maintenance",
-        pageMessage: "This page is under construction...We'll be back soon!",
-        pageMean: "Now go away!"
-    });
-});
+// app.use((req, res) => {
+//     res.render("maintenance.hbs", {
+//         pageTitle: "maintenance",
+//         pageMessage: "This page is under construction...We'll be back soon!",
+//         pageMean: "Now go away!"
+//     });
+// });
 
 app.use(express.static(__dirname + "/public"));
 
@@ -41,6 +41,19 @@ app.get("/", (req, res) => {
     res.render("home.hbs", {
         pageTitle: "Welcome Page",
         welcomeMessage: "This is the welcome page! Welcome!"
+    });
+});
+
+app.get("/about", (req, res) => {
+    res.render("about.hbs", {
+        pageTitle: "About Page"
+    });
+});
+
+app.get("*", (req, res) => {
+    res.render("notfound.hbs", {
+        pageTitle: "Page Not Found",
+        pageQuestion: "What are you doing with your life?"
     });
 });
 
