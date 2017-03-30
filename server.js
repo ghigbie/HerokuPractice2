@@ -51,7 +51,7 @@ app.get("/about", (req, res) => {
     });
 });
 
-app.get("projects", (req, res) => {
+app.get("/projects", (req, res) => {
     res.render("projects.hbs", {
         pageTitle: "Projects Page",
         pageMessage: "This page holds al of my projects"
