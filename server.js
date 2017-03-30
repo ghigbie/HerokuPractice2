@@ -50,6 +50,16 @@ app.get("/about", (req, res) => {
     });
 });
 
+app.get("/moreinfo",  (req, res) => {
+    res.send("<h1>There's a lot more information on this page</h1>");
+});
+
+app.get("/bad", (req, res) => {
+    res.send({
+        error: "There was an error requesting this page"
+    });
+});
+
 app.get("*", (req, res) => {
     res.render("notfound.hbs", {
         pageTitle: "Page Not Found",
