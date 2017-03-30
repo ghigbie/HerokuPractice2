@@ -27,6 +27,24 @@ app.use((req, res) => {
     });
 });
 
+app.use(express.static(__dirname + "/public"));
+
+hbs.registerHelper("getCurrentYear", () => {
+    return new Date().getFullYear();
+});
+
+hbs.registerHelper("screamIt", (text) => {
+    return text.toUpperCase();
+});
+
+app.get("/", (req, res) => {
+    res.render("home.hbs", {
+        pageTitle: "Welcome Page",
+        welcomeMessage: "This is the welcome page! Welcome!"
+    });
+});
+
+
 app.listen(3000, process.env.IP, () => {
     console.log("Server is up on Port 3000.");
 });
